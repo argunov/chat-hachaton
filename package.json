@@ -4,7 +4,7 @@
   "description": "Medical chat for Digital Health Hackaton",
   "main": "server/index.js",
   "scripts": {
-    "test": "mocha server/test --timeout 3000"
+    "test": "mocha server/tests --timeout 3000"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,21 @@
   },
   "homepage": "https://github.com/ooby/chat-hachaton#readme",
   "dependencies": {
+    "async": "^2.6.0",
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.1",
+    "mongoose": "^5.0.6",
+    "morgan": "^1.9.0",
+    "nconf": "^0.10.0",
     "vidiq": "^0.3.3"
+  },
+  "devDependencies": {
+    "mocha": "^5.0.1",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "sinon": "^4.3.0",
+    "sinon-chai": "^2.14.0",
+    "socket.io-client": "^2.0.4"
   }
 }
