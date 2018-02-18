@@ -1,0 +1,28 @@
+{
+  "name": "chat-hackaton",
+  "version": "0.0.1",
+  "description": "Medical chat for Digital Health Hackaton",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "mocha server/test --timeout 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ooby/chat-hachaton.git"
+  },
+  "keywords": [
+    "chat",
+    "hackaton",
+    "medical"
+  ],
+  "author": "Afanasy Argunov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ooby/chat-hachaton/issues"
+  },
+  "homepage": "https://github.com/ooby/chat-hachaton#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "vidiq": "^0.3.3"
+  }
+}

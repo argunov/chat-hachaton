@@ -1,0 +1,8 @@
+.DS_Store
+node_modules
+tmp
+build
+server/config/*.json
+debug.js
+debug.json
+npm-debug.log
