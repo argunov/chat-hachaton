@@ -12,7 +12,10 @@ const login = async (req, res, next) => {
             id: a._id,
             email: a.email,
             surname: a.surname,
-            firstname: a.firstname
+            firstname: a.firstname,
+            address: a.address,
+            voxName: a.voxName,
+            role: a.role
         };
         let token = jwt.sign(payload, secret, { expiresIn: '30 days' });
         res.status(200).json({ message: 'OK', access: token });

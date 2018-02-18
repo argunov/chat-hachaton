@@ -1,0 +1,22 @@
+#local {
+    border: 1px solid gray;
+    bottom: 20px;
+    left: 20px;
+    max-height: 20%;
+    max-width: 20%;
+    opacity: 1;
+    position: fixed;
+    transition: opacity 1s;
+    z-index: 2; 
+}
+#remote {
+    border: 1px solid gray;
+    bottom: 20px;
+    right: 20px;
+    max-height: 20%;
+    max-width: 20%;
+    opacity: 1;
+    position: fixed;
+    transition: opacity 1s;
+    z-index: 2; 
+}

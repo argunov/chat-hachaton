@@ -1,0 +1,104 @@
+<md-card ng-init="initMe()" ng-if="$root.logged" style="max-width: 600px" layout-fill>
+    <md-card-title layout="column" layout-align="center center">
+        <md-card-title-text layout="column" layout-align="center center">
+            <span class="md-headline">Данные</span>
+            <span class="md-subhead">ID: {{ me.id }}</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-content ng-if="!isDoctor">
+        <md-content md-theme="docs-dark" layout-padding>
+            <div>
+                <md-input-container class="md-block" flex>
+                    <label>Имя</label>
+                    <input ng-model="me.firstname" disabled>
+                </md-input-container>
+                <md-input-container class="md-block" flex>
+                    <label>Фамилия</label>
+                    <input ng-model="me.surname" disabled>
+                </md-input-container>
+            </div>
+        </md-content>
+        <md-content layout-padding layout="row">
+            <md-input-container class="md-block" flex>
+                <label>Возраст</label>
+                <input ng-model="data.age" type="number">
+            </md-input-container>
+            <md-input-container class="md-block" flex>
+                <label>Пол</label>
+                <md-select ng-model="data.gender">
+                    <md-option ng-repeat="gender in genders" value="{{gender.name}}">
+                        {{gender.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </md-content>
+        <md-input-container class="md-block">
+            <label>Жалобы</label>
+            <textarea ng-model="data.comps" md-maxlength="150" rows="2" md-select-on-focus></textarea>
+        </md-input-container>
+        <md-content layout-padding layout="row">
+            <md-input-container class="md-block" flex>
+                <label>Написать сообщение</label>
+                <input ng-model="message.body">
+            </md-input-container>
+            <md-button class="md-fab md-mini md-primary" ng-click="send()">
+                <ng-md-icon icon="send" style="fill: white;"></ng-md-icon>
+            </md-button>
+        </md-content>
+    </md-card-content>
+    <md-card-content ng-if="isDoctor">
+        <md-content layout-padding layout="row">
+            <md-input-container class="md-block" flex>
+                <label>Написать сообщение</label>
+                <input ng-model="message.body">
+            </md-input-container>
+            <md-button class="md-fab md-mini md-primary" ng-click="send()">
+                <ng-md-icon icon="send" style="fill: white;"></ng-md-icon>
+            </md-button>
+        </md-content>
+        <md-content layout-padding layout="row">
+            <md-input-container class="md-block" flex>
+                <label>Возраст</label>
+                <input ng-model="data.age" type="number">
+            </md-input-container>
+            <md-input-container class="md-block" flex>
+                <label>Пол</label>
+                <md-select ng-model="data.gender">
+                    <md-option ng-repeat="gender in genders" value="{{gender.name}}">
+                        {{gender.name}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+        </md-content>
+        <md-input-container class="md-block">
+            <label>Жалобы</label>
+            <textarea ng-model="data.comps" md-maxlength="150" rows="2" md-select-on-focus></textarea>
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Диагноз</label>
+            <textarea ng-model="data.diagnosis" md-maxlength="150" rows="2" md-select-on-focus></textarea>
+        </md-input-container>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="center center">
+        <md-button ng-if="!isDoctor" class="md-primary md-raised" ng-click="apply()">Записаться</md-button>
+        <md-button ng-if="isDoctor" class="md-primary md-raised" ng-click="save()">Сохранить</md-button>
+    </md-card-actions>
+    <md-card-content ng-if="isDoctor">
+        <md-toolbar layout="row" class="md-hue-3">
+            <div class="md-toolbar-tools">
+                <span>История</span>
+            </div>
+        </md-toolbar>
+        <md-content>
+            <md-list flex>
+                <md-list-item class="md-3-line" ng-repeat="item in dataset" ng-click="null">
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{ item.pat }}</h3>
+                        <h4>{{ item.diag }}</h4>
+                        <p>{{ item.anam }}</p>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </md-card-content>
+</md-card>

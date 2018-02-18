@@ -25,7 +25,10 @@ const me = (req, res, next) => {
             id: req.decoded.id,
             email: req.decoded.email,
             surname: req.decoded.surname,
-            firstname: req.decoded.firstname
+            firstname: req.decoded.firstname,
+            address: req.decoded.address,
+            voxName: req.decoded.voxName,
+            role: req.decoded.role
         }
     });
 };

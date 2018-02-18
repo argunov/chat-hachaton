@@ -23,6 +23,20 @@
                 </div>
             </md-input-container>
             <md-input-container class="md-block">
+                <label>Адрес в сети блокчейн</label>
+                <input ng-model="register.address" required name="address">
+                <div ng-messages="signupForm.address.$error" role="alert">
+                    <div ng-message="required">Поле не может быть пустым</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Имя в VoxImplant</label>
+                <input ng-model="register.voxName" required name="voxName">
+                <div ng-messages="signupForm.voxName.$error" role="alert">
+                    <div ng-message="required">Поле не может быть пустым</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
                 <label>Фамилия</label>
                 <input ng-model="register.surname" required name="surname">
                 <div ng-messages="signupForm.surname.$error" role="alert">

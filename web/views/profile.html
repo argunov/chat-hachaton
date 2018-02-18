@@ -1,9 +1,11 @@
 <md-card ng-init="initMe()" ng-if="$root.logged" style="max-width: 600px" layout-fill>
     <md-card-title layout="column" layout-align="center center">
         <md-card-title-text layout="column" layout-align="center center">
-            <span class="md-headline">Мой профиль</span>
+            <span class="md-headline">Профиль</span>
             <span class="md-subhead">{{ me.surname }} {{ me.firstname }} {{ me.email }}</span>
             <span class="md-subhead">ID: {{ me.id }}</span>
+            <span class="md-subhead">Address: {{ me.address }}</span>
+            <span class="md-subhead">Role: {{ me.role }}</span>
         </md-card-title-text>
     </md-card-title>
     <md-card-actions layout="row" layout-align="center center">

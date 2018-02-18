@@ -1,8 +1,8 @@
 const Account = require('../../models/account');
 const { error, mhError } = require('../../libs/error');
 const signup = async (req, res, next) => {
-    let { email, password, surname, firstname, patronymic, avatar } = req.body;
-    if (!email || !password || !surname || !firstname) { next(error(400, 'BAD_REQUEST')); }
+    let { email, password, surname, firstname, patronymic, avatar, address, voxName } = req.body;
+    if (!email || !password || !surname || !firstname || !address || !voxName) { next(error(400, 'BAD_REQUEST')); }
     try {
         let a = await Account.findOne({ email: email });
         if (a) { next(error(409, 'ALREADY_EXIST')); }
@@ -11,6 +11,8 @@ const signup = async (req, res, next) => {
             password: password,
             surname: surname,
             firstname: firstname,
+            address: address,
+            voxName: voxName,
             patronymic: (patronymic),
             avatar: (avatar)
         });

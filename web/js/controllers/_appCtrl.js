@@ -1,5 +1,38 @@
 'use strict';
+var web3;
+if (typeof web3 !== 'undefined') {
+    web3 = new Web3(web3.currentProvider);
+} else {
+    web3 = new Web3(new Web3.providers.HttpProvider('http://100.90.7.38:8545'));
+}
+var vox = VoxImplant.getInstance();
+
+vox.init({ micRequired: true });
+vox.addEventListener(VoxImplant.Events.SDKReady, handleSDKReady);
+
+function handleSDKReady() {
+    vox.connect();
+}
+
+vox.addEventListener(VoxImplant.Events.ConnectionEstablished, handleConnectionEstablished);
+vox.addEventListener(VoxImplant.Events.ConnectionFailed, handleConnectionFailed);
+vox.addEventListener(VoxImplant.Events.ConnectionClosed, handleConnectionClosed);
+
+function handleConnectionEstablished() {
+    if (typeof console != "undefined") console.log("Connected to VoxImplant:" + vox.connected());
+}
+
+function handleConnectionFailed(e) {
+    if (typeof console != "undefined") console.log("Connection to VoxImplant failed:" + e.message);
+}
+
+function handleConnectionClosed() {
+    if (typeof console != "undefined") console.log("Connected to VoxImplant:" + vox.closed());
+}
+
 function appCtrl(Auth, $mdToast, $scope, $rootScope, $route, $location, $window) {
+    $rootScope.web3 = web3;
+    $rootScope.vox = vox;
     var last = {
         bottom: false,
         top: true,

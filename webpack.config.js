@@ -8,6 +8,18 @@ var copyFiles = [
         to: 'css/angular-material.min.css'
     },
     {
+        from: './node_modules/socket.io-client/dist/socket.io.js',
+        to: 'js/socket.io.js'
+    },
+    {
+        from: './node_modules/socket.io-client/dist/socket.io.js.map',
+        to: 'js/socket.io.js.map'
+    },
+    {
+        from: './web3.min.js',
+        to: 'js/web3.min.js'
+    },
+    {
         from: './web/templates/index.html',
         to: 'index.html'
     },

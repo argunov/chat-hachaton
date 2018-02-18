@@ -1,5 +1,5 @@
 'use strict';
-function profileCtrl(Auth, $scope, $location, $rootScope) {
+function profileCtrl(Auth, $scope, $location, $rootScope, $window) {
     $rootScope.processing = false;
     $scope.me = {};
     $scope.initMe = function () {
@@ -8,8 +8,7 @@ function profileCtrl(Auth, $scope, $location, $rootScope) {
             .then(function (r) {
                 $rootScope.processing = false;
                 $scope.me = r.account;
-            },
-            function (e) {
+            }, function (e) {
                 $rootScope.processing = false;
                 $rootScope.$broadcast('alert', e.message);
                 $location.path('/');

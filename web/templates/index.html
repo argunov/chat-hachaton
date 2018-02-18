@@ -5,11 +5,12 @@
     <base href="/">
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>gross.ID</title>
+    <title>DHC CHAT</title>
     <meta name="viewport" content="width=device-width">
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="css/angular-material.min.css">
     <link href="/assets/images/favicon.ico" rel="icon" type="image/x-icon" />
+    <script type="text/javascript" src="//cdn.voximplant.com/edge/voximplant.min.js"></script>
 </head>
 
 <body ng-app="id" ng-cloak flow-prevent-drop ng-controller="SideCtrl">
@@ -18,7 +19,7 @@
             <md-button class="md-icon-button md-primary" ng-click="toggleMenu()" aria-label="menu">
                 <ng-md-icon icon="menu" style="fill: white;"></ng-md-icon>
             </md-button>
-            <h2><a ng-href="/">gross.ID</a></h2>
+            <md-button ng-if="$root.logged" class="md-warn md-raised md-hue-2" ng-href="room">Консультация</md-button>
             <span flex></span>
             <md-button ng-if="$root.logged" class="md-icon-button md-primary" ng-href="profile" aria-label="Profile">
                 <ng-md-icon icon="person" style="fill: white;"></ng-md-icon>
@@ -72,6 +73,10 @@
     </md-sidenav>
     <md-progress-linear ng-if="$root.processing" class="md-warn" md-mode="indeterminate"></md-progress-linear>
     <div layout="row" layout-align="center center" layout-margin ng-view></div>
+    <video id="local" autoplay></video>
+    <video id="remote" autoplay></video>
+    <script src="js/web3.min.js"></script>
+    <script src="js/socket.io.js"></script>
     <script src="js/vendors.js"></script>
     <script src="js/bundle.js"></script>
 </body>

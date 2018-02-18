@@ -13,6 +13,8 @@ const accountSchema = new Schema({
     email: { type: String, required: true, unique: true },
     surname: { type: String, required: true },
     firstname: { type: String, required: true },
+    address: { type: String, required: true },
+    voxName: { type: String, required: true },
     patronymic: { type: String },
     role: { type: String, default: 'user' },
     avatar: String,
