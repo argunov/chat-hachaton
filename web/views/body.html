@@ -1,0 +1,23 @@
+<md-card ng-if="!$root.logged" style="max-width: 600px" layout-fill>
+    <md-card-title layout="column" layout-align="center center">
+        <md-card-title-text layout="column" layout-align="center center">
+            <span class="md-headline">Служба gross.ID</span>
+            <span class="md-subhead">Авторизация и аутентификация</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-actions layout="row" layout-align="center center">
+        <md-button class="md-primary md-raised" ng-href="login">Вход</md-button>
+        <md-button class="md-warn md-raised md-hue-2" ng-href="signup">Регистрация</md-button>
+    </md-card-actions>
+</md-card>
+<md-card ng-if="$root.logged" style="max-width: 600px" layout-fill>
+    <md-card-title layout="column" layout-align="center center">
+        <md-card-title-text layout="column" layout-align="center center">
+            <span class="md-headline">Служба gross.ID</span>
+            <span class="md-subhead">Авторизация и аутентификация</span>
+        </md-card-title-text>
+    </md-card-title>
+    <md-card-actions layout="row" layout-align="center center">
+        <md-button class="md-primary md-raised" ng-href="profile">Мой профиль</md-button>
+    </md-card-actions>
+</md-card>

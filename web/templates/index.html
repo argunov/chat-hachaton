@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <base href="/">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>gross.ID</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="css/angular-material.min.css">
+    <link href="/assets/images/favicon.ico" rel="icon" type="image/x-icon" />
+</head>
+
+<body ng-app="id" ng-cloak flow-prevent-drop ng-controller="SideCtrl">
+    <md-toolbar class="md-primary md-hue-2">
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button md-primary" ng-click="toggleMenu()" aria-label="menu">
+                <ng-md-icon icon="menu" style="fill: white;"></ng-md-icon>
+            </md-button>
+            <h2><a ng-href="/">gross.ID</a></h2>
+            <span flex></span>
+            <md-button ng-if="$root.logged" class="md-icon-button md-primary" ng-href="profile" aria-label="Profile">
+                <ng-md-icon icon="person" style="fill: white;"></ng-md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
+        <md-toolbar layout="row" layout-align="start center">
+            <div class="md-toolbar-tools">
+                <h4>О сервисе</h4>
+            </div>
+        </md-toolbar>
+        <md-list>
+            <md-list-item ng-if="$root.logged" ng-href="profile" layout="row" ng-click="toggleMenu()">
+                <ng-md-icon icon="person" style="fill: grey; padding-left: 8px; padding-top: 8px"></ng-md-icon>
+                <p class="md-body-1" style="padding-left: 24px">Мой профиль</p>
+            </md-list-item>
+            <md-list-item ng-if="!$root.logged" ng-href="signup" layout="row" ng-click="toggleMenu()">
+                <ng-md-icon icon="person_add" style="fill: grey; padding-left: 8px; padding-top: 8px"></ng-md-icon>
+                <p class="md-body-1" style="padding-left: 24px">Регистрация</p>
+            </md-list-item>
+            <md-list-item ng-if="!$root.logged" ng-href="login" layout="row" ng-click="toggleMenu()">
+                <ng-md-icon icon="login" style="fill: grey; padding-left: 8px; padding-top: 8px"></ng-md-icon>
+                <p class="md-body-1" style="padding-left: 24px">Вход</p>
+            </md-list-item>
+            <md-list-item ng-href="rules" layout="row" ng-click="toggleMenu()">
+                <ng-md-icon icon="playlist_add_check" style="fill: grey; padding-left: 8px; padding-top: 8px"></ng-md-icon>
+                <p class="md-body-1" style="padding-left: 24px">Правила пользования</p>
+            </md-list-item>
+            <md-list-item ng-href="help" layout="row" ng-click="toggleMenu()">
+                <ng-md-icon icon="help" style="fill: grey; padding-left: 8px; padding-top: 8px"></ng-md-icon>
+                <p class="md-body-1" style="padding-left: 24px">Помощь</p>
+            </md-list-item>
+            <md-list-item ng-href="faq" layout="row" ng-click="toggleMenu()">
+                <ng-md-icon icon="question_answer" style="fill: grey; padding-left: 8px; padding-top: 8px"></ng-md-icon>
+                <p class="md-body-1" style="padding-left: 24px">FAQ</p>
+            </md-list-item>
+            <md-list-item ng-href="feedback" layout="row" ng-click="toggleMenu()">
+                <ng-md-icon icon="feedback" style="fill: grey; padding-left: 8px; padding-top: 8px"></ng-md-icon>
+                <p class="md-body-1" style="padding-left: 24px">Оставить отзыв</p>
+            </md-list-item>
+            <md-list-item ng-href="info" layout="row" ng-click="toggleMenu()">
+                <ng-md-icon icon="info" style="fill: grey; padding-left: 8px; padding-top: 8px"></ng-md-icon>
+                <p class="md-body-1" style="padding-left: 24px">Общая информация</p>
+            </md-list-item>
+            <md-list-item ng-href="/" layout="row" ng-click="toggleMenu()">
+                <ng-md-icon icon="apps" style="fill: grey; padding-left: 8px; padding-top: 8px"></ng-md-icon>
+                <p class="md-body-1" style="padding-left: 24px">На главную</p>
+            </md-list-item>
+        </md-list>
+    </md-sidenav>
+    <md-progress-linear ng-if="$root.processing" class="md-warn" md-mode="indeterminate"></md-progress-linear>
+    <div layout="row" layout-align="center center" layout-margin ng-view></div>
+    <script src="js/vendors.js"></script>
+    <script src="js/bundle.js"></script>
+</body>
